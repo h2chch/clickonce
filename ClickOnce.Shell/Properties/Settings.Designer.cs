@@ -37,7 +37,7 @@ namespace ClickOnce.Shell.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Mineman")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dummy")]
         public string ApplicationName {
             get {
                 return ((string)(this["ApplicationName"]));

@@ -6,7 +6,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ApplicationName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Mineman</Value>
+      <Value Profile="(Default)">Dummy</Value>
     </Setting>
   </Settings>
 </SettingsFile>

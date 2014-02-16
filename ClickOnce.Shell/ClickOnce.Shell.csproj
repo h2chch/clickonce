@@ -25,9 +25,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ProductName>Mineman Product</ProductName>
-    <PublisherName>Mineman Publisher</PublisherName>
-    <SuiteName>Mineman Suite</SuiteName>
+    <ProductName>Dummy Product</ProductName>
+    <PublisherName>Dummy Publisher</PublisherName>
+    <SuiteName>Dummy Suite</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
