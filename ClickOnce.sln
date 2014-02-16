@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickOnce.Shell", "ClickOnc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickOnce.Lib", "ClickOnce.Lib\ClickOnce.Lib.csproj", "{928E1BE7-9A15-4427-818A-64DA35D5EFA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickOnce.WebService", "ClickOnce.WebService\ClickOnce.WebService.csproj", "{11D2ABE0-D6F8-47D5-89E3-3F04C97EA023}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{928E1BE7-9A15-4427-818A-64DA35D5EFA1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{928E1BE7-9A15-4427-818A-64DA35D5EFA1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{928E1BE7-9A15-4427-818A-64DA35D5EFA1}.Release|x86.ActiveCfg = Release|Any CPU
+		{11D2ABE0-D6F8-47D5-89E3-3F04C97EA023}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{11D2ABE0-D6F8-47D5-89E3-3F04C97EA023}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{11D2ABE0-D6F8-47D5-89E3-3F04C97EA023}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{11D2ABE0-D6F8-47D5-89E3-3F04C97EA023}.Debug|x86.ActiveCfg = Debug|x86
+		{11D2ABE0-D6F8-47D5-89E3-3F04C97EA023}.Debug|x86.Build.0 = Debug|x86
+		{11D2ABE0-D6F8-47D5-89E3-3F04C97EA023}.Release|Any CPU.ActiveCfg = Release|x86
+		{11D2ABE0-D6F8-47D5-89E3-3F04C97EA023}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{11D2ABE0-D6F8-47D5-89E3-3F04C97EA023}.Release|Mixed Platforms.Build.0 = Release|x86
+		{11D2ABE0-D6F8-47D5-89E3-3F04C97EA023}.Release|x86.ActiveCfg = Release|x86
+		{11D2ABE0-D6F8-47D5-89E3-3F04C97EA023}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
