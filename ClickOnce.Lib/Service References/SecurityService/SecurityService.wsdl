@@ -41,10 +41,20 @@
   <wsdl:message name="ISecurityService_GetCustomerKey_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCustomerKeyResponse" />
   </wsdl:message>
+  <wsdl:message name="ISecurityService_AuthenticateCustomerKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateCustomerKey" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_AuthenticateCustomerKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateCustomerKeyResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISecurityService">
     <wsdl:operation name="GetCustomerKey">
       <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetCustomerKey" message="tns:ISecurityService_GetCustomerKey_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetCustomerKeyResponse" message="tns:ISecurityService_GetCustomerKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateCustomerKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/AuthenticateCustomerKey" message="tns:ISecurityService_AuthenticateCustomerKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/AuthenticateCustomerKeyResponse" message="tns:ISecurityService_AuthenticateCustomerKey_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ISecurityService" type="tns:ISecurityService">
@@ -52,6 +62,15 @@
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="GetCustomerKey">
       <soap12:operation soapAction="http://tempuri.org/ISecurityService/GetCustomerKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateCustomerKey">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityService/AuthenticateCustomerKey" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

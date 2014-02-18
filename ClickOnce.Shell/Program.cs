@@ -76,8 +76,6 @@ namespace ClickOnce.Shell
                 Settings.Default.IsFirstRun = false;
                 Settings.Default.Save();
             }
-
-            MessageBox.Show(customerKey);
         }
     }
 

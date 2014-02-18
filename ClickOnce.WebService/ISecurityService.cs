@@ -11,5 +11,8 @@ namespace ClickOnce.WebService
     {
         [OperationContract]
         string GetCustomerKey(string userName, string macAddress);
+
+        [OperationContract]
+        string AuthenticateCustomerKey(string userName, string macAddress);
     }
 }

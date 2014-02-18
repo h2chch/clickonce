@@ -9,31 +9,53 @@ namespace ClickOnce.WebService
 {
     public class SecurityService : ISecurityService
     {
-        static IList<Tuple<string, string, string>> _validKeys;
-        static IList<Tuple<string, string, string>> ValidKeys
+        const string CustomerKey = "ThisIsACustomerKey";
+        const string ConnectionString = "ThisIsAConnectionString";
+
+        static IList<Tuple<string, string, string>> _validUsers;
+        static IList<Tuple<string, string, string>> ValidUsers
         {
             get
             {
-                if (_validKeys == null)
+                if (_validUsers == null)
                 {
-                    _validKeys = new List<Tuple<string, string, string>>();
-                    _validKeys.Add(new Tuple<string, string, string>("test", "C2143DC3B443", "valid customer key"));
+                    _validUsers = new List<Tuple<string, string, string>>();
+                    _validUsers.Add(new Tuple<string, string, string>("test", "C2143DC3B443", CustomerKey));
                 }
-
-                return _validKeys;
+                return _validUsers;
             }
 
             set
             {
-                _validKeys = value;
+                _validUsers = value;
             }
         }
+
+        static IList<Tuple<string, string, string>> _validCustomerKeys;
+        static IList<Tuple<string, string, string>> ValidCustomerKeys
+        {
+            get
+            {
+                if (_validCustomerKeys == null)
+                {
+                    _validCustomerKeys = new List<Tuple<string, string, string>>();
+                    _validCustomerKeys.Add(new Tuple<string, string, string>(CustomerKey, "C2143DC3B443", ConnectionString));
+                }
+                return _validCustomerKeys;
+            }
+
+            set
+            {
+                _validCustomerKeys = value;
+            }
+        }
+        
 
         public string GetCustomerKey(string userName, string macAddress)
         {
             Console.WriteLine("Receiving request, username: " + userName + " mac address: " + macAddress);
 
-            Tuple<string, string, string> key = ValidKeys.FirstOrDefault(k => 
+            Tuple<string, string, string> key = ValidUsers.FirstOrDefault(k => 
                 k.Item1.Equals(userName, StringComparison.InvariantCultureIgnoreCase) 
                 && k.Item2.Equals(macAddress, StringComparison.InvariantCultureIgnoreCase));
 
@@ -43,6 +65,23 @@ namespace ClickOnce.WebService
             }
             
             return key.Item3;
+        }
+
+        public string AuthenticateCustomerKey(string customerKey, string macAddress)
+        {
+            Console.WriteLine("Receiving request, customer key: " + customerKey + " mac address: " + macAddress);
+
+            Tuple<string, string, string> key = ValidCustomerKeys.FirstOrDefault(k =>
+                k.Item1.Equals(customerKey, StringComparison.InvariantCultureIgnoreCase)
+                && k.Item2.Equals(macAddress, StringComparison.InvariantCultureIgnoreCase));
+
+            if (key == null)
+            {
+                return "ThisIsInvalidConnectionString";
+            }
+
+            return key.Item3;
+
         }
     }
 }

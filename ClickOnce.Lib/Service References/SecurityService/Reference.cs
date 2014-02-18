@@ -17,6 +17,9 @@ namespace ClickOnce.Lib.SecurityService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/GetCustomerKey", ReplyAction="http://tempuri.org/ISecurityService/GetCustomerKeyResponse")]
         string GetCustomerKey(string userName, string macAddress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/AuthenticateCustomerKey", ReplyAction="http://tempuri.org/ISecurityService/AuthenticateCustomerKeyResponse")]
+        string AuthenticateCustomerKey(string userName, string macAddress);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -48,6 +51,10 @@ namespace ClickOnce.Lib.SecurityService {
         
         public string GetCustomerKey(string userName, string macAddress) {
             return base.Channel.GetCustomerKey(userName, macAddress);
+        }
+        
+        public string AuthenticateCustomerKey(string userName, string macAddress) {
+            return base.Channel.AuthenticateCustomerKey(userName, macAddress);
         }
     }
 }

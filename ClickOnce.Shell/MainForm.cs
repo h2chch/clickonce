@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 using System.Deployment.Application;
 using ClickOnce.Shell.Properties;
+using ClickOnce.Lib;
 
 namespace ClickOnce.Shell
 {
@@ -21,6 +22,12 @@ namespace ClickOnce.Shell
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Startup startup = new Startup(Settings.Default.ApplicationName);
+            string customerKey = startup.ReadRegistry();
+            string connectionString = startup.RetrieveConnectionString(customerKey);
+
+            textBoxCustomerKey.Text = customerKey;
+            textBoxConnectionString.Text = connectionString;
         }
     }
 }

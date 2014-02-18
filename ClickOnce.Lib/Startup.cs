@@ -37,8 +37,6 @@ namespace ClickOnce.Lib
                 macAddress = NetHelper.GetMacAddress();
                 customerKey = GetCustomerKey(userName, macAddress);
             }
-
-            MessageBox.Show("customerKey : "+ customerKey);
             return customerKey;
         }
 
@@ -71,6 +69,18 @@ namespace ClickOnce.Lib
             {
                 RegistryHelper.SetValue(parent, "customerkey", encryptedData);
             }
+        }
+
+        public string RetrieveConnectionString(string customerKey)
+        {
+            string macAddress = string.Empty; 
+            string connectionString = string.Empty;
+            if (!string.IsNullOrEmpty(customerKey))
+            {
+                macAddress = NetHelper.GetMacAddress();
+                connectionString = GetConnectionString(customerKey, macAddress);
+            }
+            return connectionString;
         }
 
         /// <summary>
@@ -111,6 +121,24 @@ namespace ClickOnce.Lib
                 }
             }
             return customerKey;
+        }
+
+
+        private string GetConnectionString(string customerKey, string macAddress)
+        {
+            string connectionString = string.Empty;
+            using (SecurityServiceClient client = new SecurityServiceClient())
+            {
+                try
+                {
+                    connectionString = client.AuthenticateCustomerKey(customerKey, macAddress);
+                }
+                catch (FaultException)
+                {
+                    return null;
+                }
+            }
+            return connectionString;
         }
 
     }
